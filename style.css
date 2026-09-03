@@ -238,8 +238,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   .tl-stop:first-child{padding-top:0}
   .tl-stop:last-child{padding-bottom:0}
   .tl-stop::before{display:none}
-  .tl-node{left:-30px;top:34px}
-  .tl-stop:first-child .tl-node{top:6px}
+  .tl-node{left:-30px;top:42px}
+  .tl-stop:first-child .tl-node{top:13px}
 }
 
 @media(prefers-reduced-motion:reduce){
