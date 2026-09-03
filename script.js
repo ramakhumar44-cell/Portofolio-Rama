@@ -180,13 +180,9 @@
   }
 
   /* ---------------------------------------------------------
-     3. GERAK MASUK HERO
-     --------------------------------------------------------- */
-  var hero = document.querySelector('.hero');
-  if (hero && !reduce) hero.classList.add('anim');
-
-  /* ---------------------------------------------------------
-     4. GERAK TERIKAT GULIR — satu listener + rAF
+     3. GERAK TERIKAT GULIR — satu listener + rAF
+     (Gerak masuk hero sekarang murni CSS — lihat style.css.
+      Tak ada lagi ketergantungan JS untuk memunculkan hero.)
      --------------------------------------------------------- */
   var prog = document.getElementById('prog');
   var portrait = document.querySelector('[data-parallax]');
@@ -241,7 +237,7 @@
   setTimeout(onScroll, 300);
 
   /* ---------------------------------------------------------
-     5. Tautan email magnetik (pegas, native rAF)
+     4. Tautan email magnetik (pegas, native rAF)
      --------------------------------------------------------- */
   var mag = document.querySelector('[data-magnetic]');
   if (mag && !reduce && matchMedia('(hover: hover) and (pointer: fine)').matches) {

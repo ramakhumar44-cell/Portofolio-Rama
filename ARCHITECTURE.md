@@ -53,7 +53,9 @@ Statis — semua konten hardcoded di HTML. Tidak ada database/API.
 
 ## Gerak (semua native)
 - `IntersectionObserver` -> class `.in` pada `.reveal` (fade+rise saat masuk layar)
-- Hero: class `.anim` -> CSS `@keyframes` dengan `animation-fill-mode: backwards`
+- Hero: gerak masuk MURNI CSS (`@keyframes` + `fill: both`), digerbang
+  `@media (prefers-reduced-motion: no-preference)` -- tak bergantung script.js
+  sama sekali, jadi tak ada jeda blank kalau skrip/font lambat dimuat
 - Timeline: 1x reveal saat section masuk layar (bukan terikat posisi gulir)
 - Scroll listener + rAF: progress bar, sorot nav aktif, parallax potret
 - Email: pointermove + rAF lerp (efek magnetik pegas)

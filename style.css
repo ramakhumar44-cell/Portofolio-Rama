@@ -84,21 +84,17 @@ header{position:sticky;top:0;z-index:70;background:color-mix(in srgb,var(--char)
 .hero .hrole{font-family:var(--disp);color:var(--cream-dim);font-size:.86rem;letter-spacing:.04em;margin-top:8px}
 .hero .htag{font-family:var(--disp);font-weight:300;font-size:clamp(1.05rem,1.5vw,1.28rem);line-height:1.5;color:var(--cream)}
 
-/* gerak masuk hero — hanya saat js aktif, berakhir di keadaan selesai */
-html.js .hero h1 .l i,
-html.js .hero .shape,
-html.js .hero .portrait,
-html.js .hero .side{opacity:0}
-.hero.anim h1 .l i{animation:hUp .9s var(--eo) backwards}
-.hero.anim h1 .l:nth-child(2) i{animation-delay:.12s}
-.hero.anim .shape{animation:hFade 1.1s var(--eo) .2s backwards, hbreath 11s var(--eio) 1.5s infinite alternate}
-.hero.anim .portrait{animation:hRise 1s var(--eo) .5s backwards}
-.hero.anim .side-l{animation:hSlideL .7s var(--eo) .8s backwards}
-.hero.anim .side-r{animation:hSlideR .7s var(--eo) .95s backwards}
-html.loaded .hero h1 .l i,
-html.loaded .hero .shape,
-html.loaded .hero .portrait,
-html.loaded .hero .side{opacity:1}
+/* gerak masuk hero — MURNI CSS, jalan sekali saat load, berakhir di keadaan
+   selesai (fill both). Tidak bergantung script.js: kalau JS/stylesheet lambat
+   atau gagal, hero tetap tampil normal (opacity default 1). */
+@media(prefers-reduced-motion:no-preference){
+  .hero h1 .l i{animation:hUp .9s var(--eo) both}
+  .hero h1 .l:nth-child(2) i{animation-delay:.12s}
+  .hero .shape{animation:hFade 1.1s var(--eo) .2s both, hbreath 11s var(--eio) 1.5s infinite alternate}
+  .hero .portrait{animation:hRise 1s var(--eo) .5s both}
+  .hero .side-l{animation:hSlideL .7s var(--eo) .8s both}
+  .hero .side-r{animation:hSlideR .7s var(--eo) .95s both}
+}
 @keyframes hUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes hFade{from{opacity:0}to{opacity:1}}
 @keyframes hRise{from{opacity:0;transform:translateX(-50%) translateY(34px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
@@ -213,8 +209,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   .hero .shape{position:absolute;left:50%;bottom:auto;top:120px;transform:translateX(-50%);width:min(70%,260px);height:min(56vw,320px)}
   .hero .portrait{position:relative;left:auto;bottom:auto;transform:none;width:min(70%,290px);margin:18px auto 0}
   .hero .side{position:static;transform:none;max-width:100%;text-align:left;margin-top:26px}
-  .hero.anim .portrait{animation:hUp 1s var(--eo) .4s backwards}
-  .hero.anim .side-l,.hero.anim .side-r{animation:hUp .6s var(--eo) .3s backwards}
+  @media(prefers-reduced-motion:no-preference){
+    .hero .portrait{animation:hUp 1s var(--eo) .4s both}
+    .hero .side-l,.hero .side-r{animation:hUp .6s var(--eo) .3s both}
+  }
   @media(prefers-reduced-motion:reduce){.hero .portrait{transform:none!important}}
   .chap{grid-template-columns:1fr;gap:12px}
   .focus{grid-template-columns:1fr;gap:20px}
@@ -229,11 +227,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
   html.js .reveal,
-  html.js .tl-stop,
-  html.js .hero h1 .l i,
-  html.js .hero .shape,
-  html.js .hero .portrait,
-  html.js .hero .side{opacity:1!important;transform:none!important}
+  html.js .tl-stop{opacity:1!important;transform:none!important}
   .hero .portrait{transform:translateX(-50%)!important}
   .tl-fill{width:100%!important}
 }
