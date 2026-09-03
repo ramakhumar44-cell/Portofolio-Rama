@@ -207,13 +207,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   .nav .links{display:none}
   .hero h1{font-size:clamp(3rem,19vw,7rem);position:relative;z-index:2;order:-1}
   .hero{position:relative}
-  /* masthead jadi kolom mengalir; --arch-h mengunci hubungan tinggi ceruk
-     <-> seberapa jauh potret ditarik naik supaya berdiri di dalam portal */
-  .hero .masthead{--arch-h:340px;min-height:0;display:flex;flex-direction:column;position:static}
+  /* masthead jadi kolom mengalir. --pw = lebar potret; margin-atas negatif
+     potret = tepat setinggi potret (lebar x rasio gambar 1007/760), jadi
+     DASAR potret selalu sejajar DASAR ceruk berapapun lebar layar. */
+  .hero .masthead{--arch-h:340px;--pw:clamp(188px,60vw,236px);min-height:0;display:flex;flex-direction:column;position:static}
   .hero .shape{position:relative;left:auto;right:auto;top:auto;bottom:auto;transform:none;
     width:clamp(230px,74vw,290px);height:var(--arch-h);margin:22px auto 0}
   .hero .portrait{position:relative;left:auto;bottom:auto;transform:none;z-index:3;
-    width:clamp(188px,60vw,236px);margin:calc(18px - var(--arch-h)) auto 0}
+    width:var(--pw);margin:calc(var(--pw) * -1007 / 760) auto 0}
   .hero .side{position:static;transform:none;max-width:100%;width:100%;text-align:left;margin-top:0}
   .hero .side-l{margin-top:32px}
   .hero .side-r{margin-top:22px}
