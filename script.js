@@ -220,7 +220,7 @@
           var r = tlWrap.getBoundingClientRect();
           if (r.top < vh * 0.82 && r.bottom > vh * 0.15) {
             tlWrap.dataset.shown = '1';
-            if (tlFill) tlFill.style.width = '100%';
+            if (tlFill) tlFill.classList.add('go');   // CSS pilih tumbuh lebar (desktop) / tinggi (mobile)
             tlStops.forEach(function (s, k) {
               setTimeout(function () { s.classList.add('on'); }, k * 120);
             });
