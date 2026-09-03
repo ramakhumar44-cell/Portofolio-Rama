@@ -183,7 +183,7 @@
      3. GERAK MASUK HERO
      --------------------------------------------------------- */
   var hero = document.querySelector('.hero');
-  if (hero && !reduce) requestAnimationFrame(function () { hero.classList.add('anim'); });
+  if (hero && !reduce) hero.classList.add('anim');
 
   /* ---------------------------------------------------------
      4. GERAK TERIKAT GULIR — satu listener + rAF
