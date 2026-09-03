@@ -1,6 +1,6 @@
 # Progress - Portofolio Rama Khumar
 
-## Status: implementasi selesai, siap review + deploy
+## Status: LIVE di https://ramakhumar44-cell.github.io/Portofolio-Rama/ (2026-09-03)
 
 ## Selesai
 - [x] Data mentah + foto asli dari Rama
@@ -16,19 +16,22 @@
 - [x] Jaring pengaman: `<html class="loaded">` failsafe kalau script.js gagal
 - [x] Responsive (breakpoint 940px), prefers-reduced-motion dihormati
 
+- [x] **Deploy**: repo Rama `ramakhumar44-cell/Portofolio-Rama`, 4 commit,
+      Pages source = "Deploy from a branch" (main / root). Workflow Actions
+      dihapus (tak dipakai + selalu gagal). `.nojekyll` + `robots.txt` ditambah.
+- [x] Verifikasi live: 8 section urut 01-07, 9 foto HTTP 200, i18n ID<->EN OK,
+      css/js/svg 200, robots.txt aktif.
+
 ## Lagi dikerjain
-- (nunggu review Rico + Rama)
+- (nunggu review teks dari Rama)
 
 ## Next
-1. **Review visual** buka `index.html` di browser sungguhan (Chrome/HP).
-   Pane sesi Claude tidak bisa render andal -> belum dicek mata untuk versi
-   project ini (baru dicek DOM: 9 foto load, i18n jalan 2 arah, CSS/JS OK).
-2. **Rama cek akurasi** teks konteks penghargaan/pengalaman (hasil riset publik,
-   ditandai di DECISIONS.md sebelumnya) + terjemahan EN.
-3. **git init** + commit pertama (repo belum ada).
-4. **Deploy** ke GitHub Pages akun Rama (`rcoalxndr`? atau akun Rama sendiri).
+1. **Rama cek akurasi** teks konteks penghargaan/pengalaman (hasil riset publik,
+   ditandai di DECISIONS.md) + terjemahan EN. Kalau ada ralat -> edit index.html
+   (ID) + kunci EN di script.js, commit, push (auto-deploy).
+2. Opsional: ganti foto hero cut-out kalau Rama punya yang lebih rapi.
 
-## Blocker
-- Belum ada git repo.
-- Foto hero cut-out kualitasnya seadanya (background transparan tapi hasil
-  potong manual) - bisa diganti kalau Rama punya yang lebih rapi.
+## Catatan
+- Dokumen kerja `.md` ikut ke-serve publik (konsekuensi deploy-from-root) tapi
+  di-`Disallow` di robots.txt jadi tak keindeks. Isinya tak sensitif.
+- Push ke `main` = auto-deploy Pages (~1 menit).
