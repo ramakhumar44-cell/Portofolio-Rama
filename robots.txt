@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+# dokumen kerja internal - jangan diindeks
+Disallow: /CLAUDE.md
+Disallow: /PROJECT.md
+Disallow: /ARCHITECTURE.md
+Disallow: /PROGRESS.md
+Disallow: /DECISIONS.md
+Disallow: /data-konten.md
